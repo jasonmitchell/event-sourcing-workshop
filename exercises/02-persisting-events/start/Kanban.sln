@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Framework", "Kanban.Framework\Kanban.Framework.csproj", "{70AE0497-63A1-45E7-9933-93E898734173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Tests", "Kanban.Tests\Kanban.Tests.csproj", "{BACDF518-4194-467D-83CA-76E74D290231}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Domain", "Kanban.Domain\Kanban.Domain.csproj", "{A2A9DB4E-4200-439A-87E8-1A7666DF4812}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70AE0497-63A1-45E7-9933-93E898734173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70AE0497-63A1-45E7-9933-93E898734173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70AE0497-63A1-45E7-9933-93E898734173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70AE0497-63A1-45E7-9933-93E898734173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACDF518-4194-467D-83CA-76E74D290231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACDF518-4194-467D-83CA-76E74D290231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACDF518-4194-467D-83CA-76E74D290231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACDF518-4194-467D-83CA-76E74D290231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A9DB4E-4200-439A-87E8-1A7666DF4812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A9DB4E-4200-439A-87E8-1A7666DF4812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A9DB4E-4200-439A-87E8-1A7666DF4812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A9DB4E-4200-439A-87E8-1A7666DF4812}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

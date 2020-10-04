@@ -68,5 +68,17 @@ namespace Kanban.Tests.Fixtures
 
             types.Should().BeEquivalentTo(actualEventTypes, opt => opt.WithStrictOrdering());
         }
+
+        public async Task AssertEvents(string streamName, IEnumerable<Event> events)
+        {
+            var result = Client.ReadStreamAsync(Direction.Forwards, streamName, StreamPosition.Start);
+
+            var actualEvents = (await result.ToListAsync())
+                               .Select(EventSerializer.Deserialize)
+                               .Select(e => (object)e)
+                               .ToList();
+
+            events.Should().BeEquivalentTo(actualEvents, opt => opt.WithStrictOrdering());
+        }
     }
 }
