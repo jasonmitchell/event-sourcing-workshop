@@ -68,7 +68,7 @@ namespace Kanban.Framework
 }
 ```
 
-Next, reate a new file called `CardAggregateStore.cs` in the `Kanban.Domain.Cards` namespace with the 
+Next, create a new file called `CardAggregateStore.cs` in the `Kanban.Domain.Cards` namespace with the 
 following content:
 
 ```csharp

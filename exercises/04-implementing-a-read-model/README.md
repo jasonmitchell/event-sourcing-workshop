@@ -48,7 +48,8 @@ As usual the code won't compile just yet. Before continuing take a moment to rev
 note of the `NotImplementedException` for now.
 
 First we will create the `ICardActivityRepository` interface. This will define how we access our 
-read model.  Create a new directory called `Queries` in `Kanban.Domain.Cards`
+read model.  Create a new directory called `Queries` in `Kanban.Domain.Cards` and create a new file
+called `ICardActivityRepository.cs` with the following content:
 
 ```csharp
 using System.Threading.Tasks;
