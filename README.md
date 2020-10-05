@@ -49,5 +49,6 @@ ASP.NET Core.
 ## Resources
 * [Event Store website](https://eventstore.com/)
 * [Event Store documentation](https://developers.eventstore.com/)
+* [Versioning in an Event Sourced System](https://leanpub.com/esversioning)
 * [xUnit](https://xunit.net)
 * [Fluent Assertions](https://fluentassertions.com)
