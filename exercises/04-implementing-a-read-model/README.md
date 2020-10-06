@@ -44,71 +44,18 @@ namespace Kanban.Tests.Integration.Queries
 ```
 
 As usual the code won't compile just yet. Before continuing take a moment to review the code of 
-`ProjectionRunner` in `Kanban.Framework`. We will revisit this class later in the exercise but take 
-note of the `NotImplementedException` for now.
+`ProjectionRunner` in `Kanban.Framework` which we will revisit this class later in the exercise but 
+take note of the `NotImplementedException` for now. How we access our read model will be defined
+by the `ICardActivityRepository` interface which is defined in `Kanban.Domain.Cards.Queries`.
 
-First we will create the `ICardActivityRepository` interface. This will define how we access our 
-read model.  Create a new directory called `Queries` in `Kanban.Domain.Cards` and create a new file
-called `ICardActivityRepository.cs` with the following content:
+This interface defines two methods.  The method `AppendActivityToCard` is what we will use to 
+update the read model and `GetActivityForCard`is how we will query the data. For this exercise we 
+will use an in-memory repository to keep it simple but in reality this is likely going to be another 
+database such as Postgres or SQL Server. This in-memory data store has already been implemented for
+you in the class `InMemoryCardActivityRepository` in `Kanban.Tests.Integration.TestHelpers`.
 
-```csharp
-using System.Threading.Tasks;
-
-namespace Kanban.Domain.Cards.Queries
-{
-    public interface ICardActivityRepository
-    {
-        Task AppendActivityToCard(string cardId, string activity);
-        Task<string[]> GetActivityForCard(string cardId);
-    }
-}
-```
-
-The method `AppendActivityToCard` is what we will use to update the read model and `GetActivityForCard`
-is how we will query the data. For this exercise we will use an in-memory repository to keep it simple,
-in reality this is likely going to be another database such as Postgres or SQL Server.
-
-Create the following file called `InMemoryCardActivityRepository.cs` in `Kanban.Tests.Integration.TestHelpers`.
-
-```csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Kanban.Domain.Cards.Queries;
-
-namespace Kanban.Tests.Integration.TestHelpers
-{
-    public class InMemoryCardActivityRepository : ICardActivityRepository
-    {
-        private readonly Dictionary<string, List<string>> _activityStreams = new Dictionary<string, List<string>>();
-        
-        public Task AppendActivityToCard(string cardId, string activity)
-        {
-            if (!_activityStreams.TryGetValue(cardId, out var activityStream))
-            {
-                activityStream = new List<string>();
-                _activityStreams[cardId] = activityStream;
-            }
-            
-            activityStream.Add(activity);
-            return Task.CompletedTask;
-        }
-
-        public Task<string[]> GetActivityForCard(string cardId)
-        {
-            if (_activityStreams.ContainsKey(cardId))
-            {
-                var activityStream = _activityStreams[cardId].ToArray();
-                return Task.FromResult(activityStream);
-            }
-
-            return Task.FromResult<string[]>(null);
-        }
-    }
-}
-```
-
-Lastly we can fix the remaining error by creating an empty projection. Create a file called
-`CardActivityProjection` in `Kanban.Domain.Cards.Queries` with the content below.
+Let's fix the compiler error by creating an empty projection. Create a file called `CardActivityProjection` 
+in `Kanban.Domain.Cards.Queries` with the content below.
 
 ```csharp
 using Kanban.Domain.Cards.Events;
